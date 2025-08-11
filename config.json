@@ -1,0 +1,26 @@
+{
+  "api_base_url": "http://localhost:8080/api",
+  "global_headers": {
+    "Authorization": "Bearer VOTRE_TOKEN_API_JWT"
+  },
+  "use_id_cache": true,
+  "integration_steps": [
+    {
+      "name": "Synchronisation Technologies",
+      "enabled": true,
+      "mode": "sync",
+      "source_file": "data/parametrage/technologies.xlsx",
+      "endpoint": "/technologies",
+      "lookup_key_column": "nom_technologie",
+      "response_id_field": "id",
+      "id_lookup_config": {
+        "lookup_endpoint": "/technologies",
+        "lookup_query_param": "search"
+      },
+      "payload_mapping": {
+        "name": "nom_technologie",
+        "description": "description_technologie"
+      }
+    }
+  ]
+}
